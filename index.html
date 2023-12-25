@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ホーム</title>
+</head>
+<body>
+    <!-- ヘッダーのテンプレートをインクルード -->
+    <div id="header-container"></div>
+    
+    <main>
+        <!-- ホームページのコンテンツをここに追加 -->
+        <h1>あなたのウェブサイトへようこそ！</h1>
+        <p>これはホームページのコンテンツです。</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 あなたのウェブサイト. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ヘッダーを動的に読み込むスクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container');
+            const headerTemplateUrl = 'header.html';
+
+            fetch(headerTemplateUrl)
+                .then(response => response.text())
+                .then(html => {
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error));
+        });
+    </script>
+</body>
+</html>
