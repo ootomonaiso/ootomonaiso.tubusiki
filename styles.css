@@ -53,17 +53,16 @@ footer {
 
 .destination-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.destination-group {
+    display: flex;
     flex-wrap: wrap;
 }
 
 .destination {
-    width: 30%;
-    background-color: #eee;
-    border: 2px solid #333;
-    border-radius: 8px;
     margin: 10px;
-    padding: 15px;
     text-align: center;
     text-decoration: none;
     color: #333;
@@ -71,5 +70,5 @@ footer {
 }
 
 .destination:hover {
-    background-color: #ddd;
+    text-decoration: underline;
 }
