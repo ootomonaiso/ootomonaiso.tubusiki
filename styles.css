@@ -50,6 +50,7 @@ footer {
     padding: 10px;
 }
 
+
 .destination-list {
     display: flex;
     flex-wrap: wrap;
@@ -60,7 +61,7 @@ footer {
     width: 30%;
     margin: 10px;
     padding: 15px;
-    background-color: #ddd;
+    border: 2px solid #333;
     border-radius: 8px;
     text-align: center;
 }
@@ -72,5 +73,5 @@ footer {
 }
 
 .destination:hover {
-    background-color: #ccc;
+    background-color: #eee;
 }
