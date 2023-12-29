@@ -4,8 +4,15 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #0067c0;
     color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+h2 {
+    background-color: #00e1ff;
+    color: #000000;
     padding: 10px;
     text-align: center;
 }
@@ -40,29 +47,49 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #0067c0;
     color: white;
     text-align: center;
     padding: 10px;
 }
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
 
+/* テーブルのスタイル */
+.custom-table {
+    width: 30%;
+    background-color: #CDD5FC;
+    border: 3px solid #35224F;
+    margin-bottom: 20px;
+}
 
-.link-table {
+/* エントリのスタイル */
+.custom-entry {
+    border: 2px solid #FFD700;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #008000;
+}
+
+/* リストのスタイル */
+.custom-list {
     list-style-type: none;
     padding: 0;
 }
 
-.link-table li {
-    margin: 10px;
-    text-align: left;
+/* リストアイテムのスタイル */
+.custom-list li {
+    margin-bottom: 10px;
 }
 
-.destination {
+/* リスト内のリンクのスタイル */
+.custom-list a {
     text-decoration: none;
-    color: #333;
     font-weight: bold;
-}
-
-.destination:hover {
-    text-decoration: underline;
+    color: #FFFFFF;
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ページタイトル</title>
+</head>
+<body>
+    <!-- ヘッダーのテンプレ -->
+    <div id="header-container"></div>
+    
+    <main>
+        <!-- 見出し的なサムシングテーブルのところをコピーすれば転用できます -->
+        <table class="custom-table" cellpadding="3">
+            <tr>
+              <td align="center">
+                <strong>ページタイトル</strong>
+              </td>
+            </tr>
+          </table>
+         <!-- 2023年1月の日記 -->
+        <h2>2023年1月</h2>
+        <div class="custom-entry">
+            <ul class="custom-list">
+                <li><a href="diary/20231227.html">2023年1月1日</a></li>
+                <!-- 他の日付を追加するならこの下に列挙 -->
+            </ul>
+        </div>
+        <!-- 他の月の日記も同様にどうぞ -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 大友内装(粒). All Rights Reserved.</p>
+    </footer>
+
+    <!-- ヘッダーを動的に読み込むスクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerContainer = document.getElementById('header-container');
+            const headerTemplateUrl = 'https://ootomonaiso.github.io/ootomonaiso.tubusiki/header.html';
+
+            fetch(headerTemplateUrl)
+                .then(response => response.text())
+                .then(html => {
+                    headerContainer.innerHTML = html;
+                })
+                .catch(error => console.error('Header template fetch error:', error));
+        });
+    </script>
+</body>
+</html>

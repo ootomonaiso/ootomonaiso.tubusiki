@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://ootomonaiso.github.io/ootomonaiso.tubusiki/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <title>トップページ</title>
 </head>
 <body>
@@ -11,24 +11,48 @@
     <div id="header-container"></div>
     
     <main>
-        <!-- ホームページのコンテンツをここに追加 -->
-        <h1>あなたのウェブサイトへようこそ！</h1>
-        <p>これはホームページのコンテンツです。</p>
-        
+        <h1>どこかに逃げない。それ、未来。</h1>
+        <table border="3" width="100%" bgcolor="#CDD5FC" cellpadding="3">
+            <tr>
+              <td width="100%" align="center" nowrap bordercolorlight="#35224F" bordercolordark="#CBC1D7">
+                <font color="#000000">
+                  <big><big><strong>日記一覧</strong></big></big>
+                </font>
+              </td>
+            </tr>
+          </table>
+<br>
         <!-- 遷移先を縦に列挙して表示 -->
-        <div class="destination-container">
-            <a href="page1.html" class="destination">ページ1に移動</a>
-            <a href="page2.html" class="destination">ページ2に移動</a>
-            <a href="diary.html" class="destination">日記ページに移動</a>
-            <!-- 必要に応じて他の遷移先を追加 -->
-        </div>
+        <table bgcolor="#0000AA" border="1" cellpadding="5" width="100%"><!-- コップのフチ子さん -->
+            <tr>
+                <td bgcolor="#A8DBFF" bordercolorlight="#000000" bordercolordark="#FFFFFF" width="57%" align="center"><!-- 内側のやつの色 -->
+                    <table border="0" cellpadding="2" width="100%">
+                        <tr>
+                            <!-- 見出しの記述はこれ参考 -->
+                            <th bgcolor="#FFFFFF" nowrap><a href="diary.html">日記</a></th>
+                            <!-- 説明の記述はこれ参考 -->
+                            <td bgcolor="#FFFFFF"><font size="2" color="#001515">ありあふれた日記になると思われる</font></td>
+                        </tr>
+                        <tr>
+                            <th bgcolor="#FFFFFF" nowrap><a href="linkcollection.html">リンク集</a></th>
+                            <td bgcolor="#FFFFFF"><font size="2" color="#001515">個人的によくアクセスするサイトたち</font></td>
+                        </tr>
+                        <tr>
+                            <th bgcolor="#FFFFFF" nowrap><a href="linkcollection.html">雑記</a></th>
+                            <td bgcolor="#FFFFFF"><font size="2" color="#001515">日記とも呼べないメモ的な何か。</font></td>
+                        </tr>
+                        <!-- <tr>でくくってるところをこの下に同様に列挙していけばいいと思うよ -->
+                    </table>
+                </td>
+            </tr>
+        </table>
     </main>
 
     <footer>
         <p>&copy; 2023 大友内装(粒). All Rights Reserved.</p>
     </footer>
 
-    <!-- ヘッダーを動的に読み込むスクリプト -->
+    <!-- ヘッダー読み込み用 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const headerContainer = document.getElementById('header-container');
