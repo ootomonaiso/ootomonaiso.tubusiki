@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>にっき</title>
+</head>
+<body>
+  <!-- ヘッダーのテンプレ -->
+  <div id="header-container"></div>
+
+<div id="changingText">(・ω・)</div>
+
+<script>
+  // ループするテキストの配列
+  var textArray = [ "(ω・　)", "(・　 ) ", "(　　　)", "(　　・)", "(　・ω)", "(・ω・)"];
+  
+  var loopIndex = 0; // ループのインデックス
+
+  function changeText() {
+    // テキストを変更
+    document.getElementById("changingText").innerText = textArray[loopIndex];
+    
+    // ループのインデックスを更新
+    loopIndex = (loopIndex + 1) % textArray.length;
+  }
+
+  // 一秒ごとにchangeText関数を呼び出す
+  setInterval(changeText, 1000);
+</script>
+
+<footer>
+  <p>&copy; 2023 大友内装(粒). All Rights Reserved.</p>
+</footer>
+
+<!-- ヘッダー読み込み用 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const headerContainer = document.getElementById('header-container');
+      const headerTemplateUrl = 'https://ootomonaiso.github.io/ootomonaiso.tubusiki/header.html';
+
+      fetch(headerTemplateUrl)
+          .then(response => response.text())
+          .then(html => {
+              headerContainer.innerHTML = html;
+          })
+          .catch(error => console.error('Header template fetch error:', error));
+  });
+</script>
+</body>
+</html>
