@@ -28,6 +28,35 @@
   <div id="changingText">(・ω・)</div>
   <p>しょぼんがくるくるします。かわいいね</p>
 
+    <p>しょぼんをながめた時間</p>
+<p id="timer">0</p>
+
+<script>
+  // タイマー用の変数
+  let startTime;
+
+  // タイマーを開始する関数
+  function startTimer() {
+    startTime = new Date().getTime();
+    updateTimer();
+  }
+
+  // タイマーを更新する関数
+  function updateTimer() {
+    const currentTime = new Date().getTime();
+    const elapsedTime = currentTime - startTime;
+
+    // ミリ秒を二進数に変換して表示
+    document.getElementById('timer').textContent = elapsedTime.toString(2);
+
+    // 10ミリ秒ごとに更新
+    setTimeout(updateTimer, 10);
+  }
+
+  // ページ読み込み時にタイマーを開始
+  startTimer();
+</script>
+
   <script>
     // ループするテキストの配列
     var textArray = [ "(ω・&nbsp;&nbsp;)", "(・&nbsp;&nbsp;&nbsp;&nbsp;) ", "(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)", "(&nbsp;&nbsp;&nbsp;&nbsp;・)", "(&nbsp;&nbsp;・ω)", "(・ω・)"];
