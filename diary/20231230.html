@@ -33,47 +33,28 @@
 
 <script>
   // タイマー用の変数
-  let startTime;
+  let timerValue = 0;
 
   // タイマーを開始する関数
   function startTimer() {
-    startTime = new Date().getTime();
     updateTimer();
   }
 
   // タイマーを更新する関数
   function updateTimer() {
-    const currentTime = new Date().getTime();
-    const elapsedTime = currentTime - startTime;
+    // 1秒ごとにタイマーを増加
+    timerValue++;
+    
+    // タイマーの値を二進数に変換して表示
+    document.getElementById('timer').textContent = timerValue.toString(2);
 
-    // ミリ秒を二進数に変換して表示
-    document.getElementById('timer').textContent = elapsedTime.toString(2);
-
-    // 10ミリ秒ごとに更新
-    setTimeout(updateTimer, 10);
+    // 1秒ごとに更新
+    setTimeout(updateTimer, 1000);
   }
 
   // ページ読み込み時にタイマーを開始
   startTimer();
 </script>
-
-  <script>
-    // ループするテキストの配列
-    var textArray = [ "(ω・&nbsp;&nbsp;)", "(・&nbsp;&nbsp;&nbsp;&nbsp;) ", "(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)", "(&nbsp;&nbsp;&nbsp;&nbsp;・)", "(&nbsp;&nbsp;・ω)", "(・ω・)"];
-    
-    var loopIndex = 0; // ループのインデックス
-
-    function changeText() {
-      // テキストを変更
-      document.getElementById("changingText").innerHTML = textArray[loopIndex];
-      
-      // ループのインデックスを更新
-      loopIndex = (loopIndex + 1) % textArray.length;
-    }
-
-    // 一秒ごとにchangeText関数を呼び出す
-    setInterval(changeText, 1000);
-  </script>
 
   <footer>
     <p>&copy; 2023 大友内装(粒). All Rights Reserved.</p>
