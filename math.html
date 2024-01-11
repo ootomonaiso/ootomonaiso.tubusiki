@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>角度変換</title>
+</head>
+<body>
+    <!-- ヘッダーのテンプレ -->
+    <div id="header-container"></div>
+<main>
+    <table border="3" width="100%" bgcolor="#CDD5FC" cellpadding="3">
+        <tr>
+          <td width="100%" align="center" nowrap bordercolorlight="#35224F" bordercolordark="#CBC1D7">
+            <font color="#000000">
+              <big><big><strong>弧度法度数法変換くん</strong></big></big>
+            </font>
+          </td>
+        </tr>
+      </table>
+
+    <label for="radianInput">弧度法:</label>
+    <input type="text" id="radianInput" placeholder="弧度法を入力">
+    <button onclick="convertToDegrees()">弧度法 → 度数法</button>
+    <p id="degreeResult"></p>
+
+    <label for="degreeInput">度数法:</label>
+    <input type="number" id="degreeInput" placeholder="度数法を入力">
+    <button onclick="convertToRadians()">度数法 → 弧度法</button>
+    <p id="radianResult"></p>
+</main>
+
+    <script>
+        // 弧度法を度数法に変換する関数
+        function convertToDegrees() {
+            var radianInput = document.getElementById("radianInput").value;
+            var radianValue = parseFraction(radianInput);
+            var degreeResult = (radianValue * 180);
+
+            // 結果が整数かどうかを確認
+            if (Number.isInteger(degreeResult)) {
+                document.getElementById("degreeResult").innerHTML = "結果: " + degreeResult + "度";
+            } else {
+                // 結果を非整数の場合、小数で表示（有効桁数3桁）
+                document.getElementById("degreeResult").innerHTML = "結果: " + degreeResult.toFixed(3) + "度";
+            }
+        }
+
+        // 度数法を弧度法に変換する関数
+        function convertToRadians() {
+            var degreeInput = document.getElementById("degreeInput").value;
+            var degreeValue = parseFloat(degreeInput);
+            var radianResult = (degreeValue * Math.PI / 180);
+
+            // 結果が整数かどうかを確認
+            if (Number.isInteger(radianResult)) {
+                document.getElementById("radianResult").innerHTML = "結果: " + radianResult + "ラジアン";
+            } else {
+                // 結果を非整数の場合、小数で表示（有効桁数3桁）
+                document.getElementById("radianResult").innerHTML = "結果: " + radianResult.toFixed(3) + "ラジアン";
+            }
+        }
+
+        // 分数を解析する関数
+        function parseFraction(value) {
+            if (value.includes('/')) {
+                var parts = value.split('/');
+                if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                    return parseFloat(parts[0]) / parseFloat(parts[1]);
+                }
+            }
+            return parseFloat(value);
+        }
+    </script>
+
+        <!-- ヘッダー読み込み用 -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const headerContainer = document.getElementById('header-container');
+                const headerTemplateUrl = 'https://ootomonaiso.github.io/ootomonaiso.tubusiki/header.html';
+       
+                fetch(headerTemplateUrl)
+                    .then(response => response.text())
+                    .then(html => {
+                        headerContainer.innerHTML = html;
+                     })
+                     .catch(error => console.error('Header template fetch error:', error));
+               });
+       </script>
+
+    <footer>
+        <p>&copy; 2023 大友内装(粒). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
