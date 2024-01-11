@@ -101,14 +101,15 @@
 
       if (document.getElementById('degrees').checked) {
         // 度数法から弧度法への変換
-        document.getElementById('result').textContent = `${angle}度は${math.unit(angle, 'deg').to('rad').toFraction()}ラジアンです。`;
+        const radianFraction = math.fraction(math.unit(angle, 'deg').toNumber('rad'));
+        document.getElementById('result').textContent = `${angle}度は${radianFraction.s}/${radianFraction.d}ラジアンです。`;
       } else {
         // 弧度法から度数法への変換
-        document.getElementById('result').textContent = `${angle}ラジアンは${math.unit(angle, 'rad').to('deg').toFraction()}度です。`;
+        const degreeFraction = math.fraction(math.unit(angle, 'rad').toNumber('deg'));
+        document.getElementById('result').textContent = `${angle}ラジアンは${degreeFraction.s}/${degreeFraction.d}度です。`;
       }
     }
   </script>
-
   <footer>
     <p>&copy; 2023 大友内装(粒). All Rights Reserved.</p>
   </footer>
