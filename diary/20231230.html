@@ -100,10 +100,10 @@
 
       if (document.getElementById('degrees').checked) {
         // 度数法から弧度法への変換
-        document.getElementById('result').textContent = `${angle}度は${math.unit(angle, 'deg').to('rad').toFixed(4)}ラジアンです。`;
+        document.getElementById('result').textContent = `${angle}度は${math.unit(angle, 'deg').to('rad').toFraction()}ラジアンです。`;
       } else {
         // 弧度法から度数法への変換
-        document.getElementById('result').textContent = `${angle}ラジアンは${math.unit(angle, 'rad').to('deg').toFixed(4)}度です。`;
+        document.getElementById('result').textContent = `${angle}ラジアンは${math.unit(angle, 'rad').to('deg').toFraction()}度です。`;
       }
     }
   </script>
