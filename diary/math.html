@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弧度法と度数法の変換（πを用いた表示）</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+  <!-- Math.jsの読み込み -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
+</head>
+<body>
+
+  <h1>弧度法と度数法の変換（πを用いた表示）</h1>
+
+  <label for="angle">角度（πを用いて）：</label>
+  <input type="text" id="angle" placeholder="数値またはπを用いた表現を入力">
+
+  <label>単位：</label>
+  <input type="radio" name="unit" id="degrees" value="degrees" checked onchange="convertAngle()">度数法
+  <input type="radio" name="unit" id="radians" value="radians" onchange="convertAngle()">弧度法
+
+  <p id="result">変換結果がここに表示されます。</p>
+
+  <script>
+    function convertAngle() {
+      const inputAngle = document.getElementById('angle').value;
+      let angle;
+
+      try {
+        // math.evaluate()を使用して数値またはπを用いた表現の文字列を解析
+        angle = math.evaluate(inputAngle);
+      } catch (error) {
+        document.getElementById('result').textContent = '正しい数値またはπを用いた表現を入力してください。';
+        return;
+      }
+
+      if (document.getElementById('degrees').checked) {
+        // 弧度法から度数法への変換
+        const degreeValue = math.unit(angle, 'rad').to('deg');
+        document.getElementById('result').textContent = `${angle}ラジアンは${degreeValue}度です。`;
+      } else {
+        // 度数法から弧度法への変換
+        const radianValue = math.unit(angle, 'deg').to('rad');
+        document.getElementById('result').textContent = `${angle}度は${radianValue}ラジアンです。`;
+      }
+    }
+  </script>
+
+</body>
+</html>
