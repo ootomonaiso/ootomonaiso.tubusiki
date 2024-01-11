@@ -38,6 +38,7 @@
     // 一秒ごとにchangeText関数を呼び出す
     setInterval(changeText, 1000);
   </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
 </head>
 <body>
   <!-- ヘッダーのテンプレ -->
@@ -84,13 +85,24 @@
 
   <p id="result">変換結果がここに表示されます。</p>
 
+ <h1>弧度法と度数法の変換（分数形式）</h1>
+
+  <label for="angle">角度：</label>
+  <input type="text" id="angle" placeholder="数値または分数を入力">
+
+  <label>単位：</label>
+  <input type="radio" name="unit" id="degrees" value="degrees" checked onchange="convertAngle()">度数法
+  <input type="radio" name="unit" id="radians" value="radians" onchange="convertAngle()">弧度法
+
+  <p id="result">変換結果がここに表示されます。</p>
+
   <script>
     function convertAngle() {
       const inputAngle = document.getElementById('angle').value;
       let angle;
 
       try {
-        // Math.js を使用して数値または分数形式の文字列を解析
+        // math.evaluate()を使用して数値または分数形式の文字列を解析
         angle = math.evaluate(inputAngle);
       } catch (error) {
         document.getElementById('result').textContent = '正しい数値または分数を入力してください。';
